@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Card, Table, Typography, Divider, Row, Col } from "antd";
+import { Card, Table, Typography, Divider, Row, Col, Button } from "antd";
 
 const { Title, Text } = Typography;
 
@@ -82,6 +82,7 @@ const ChairCart = () => {
                 bordered
                 className="shadow-md"
                 size="small"
+                rowClassName="hover:bg-gray-100"
               />
               <Divider />
               <div className="flex justify-between font-bold text-base sm:text-xl text-gray-800">
@@ -90,6 +91,14 @@ const ChairCart = () => {
                   {new Intl.NumberFormat().format(totalPrice)} VND
                 </Text>
               </div>
+              <Button
+                type="primary"
+                className="w-full mt-4"
+                size="large"
+                onClick={() => alert('Thanh toán thành công!')}
+              >
+                Thanh Toán
+              </Button>
             </div>
           </Col>
         </Row>
