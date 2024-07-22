@@ -9,11 +9,12 @@ import DetailMovie from "./page/detailMovie";
 import SticketRoon from "./page/sticketRoom";
 import InfoUser from "./page/info-user";
 import Autherization from "./HOC/autherization";
+import LoadingPage from "./component/loading";
 
 function App() {
   return (
     <BrowserRouter>
-    
+   
       <Routes>
       <Route path="" element={<HomeTemplate/>}>
     <Route index element={<HomePage/>}></Route>

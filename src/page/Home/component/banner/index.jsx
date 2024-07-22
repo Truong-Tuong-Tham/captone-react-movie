@@ -48,7 +48,7 @@ const Banner = () => {
       <Carousel
         autoplay
         effect="fade"
-        dots={true}
+        dots={false} // Hide the dots
         autoplaySpeed={3000} // Adjust the speed (3000ms = 3s)
         prevArrow={<button className="absolute left-0 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-80 text-white z-10" style={{ top: '50%' }}>&lt;</button>}
         nextArrow={<button className="absolute right-0 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-80 text-white z-10" style={{ top: '50%' }}>&gt;</button>}
