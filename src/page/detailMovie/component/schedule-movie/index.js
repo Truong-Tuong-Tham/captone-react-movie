@@ -1,4 +1,4 @@
-import { Button, Image, Tabs } from "antd";
+import { Button, Image, message, Tabs } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";  // Import moment
@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const ScheDuleMovie = ({ refschedulemovie }) => {
   const navigate = useNavigate();
   const { scheduleDetailMovie } = useSelector((state) => state.movieReducer);
-
-  const renderListRapChieuByCumRap = (listRapChieu) => {
+const {userInfo} = useSelector((state) => state.userReducer);
+   const renderListRapChieuByCumRap = (listRapChieu) => {
     return listRapChieu.map((rapChieu) => (
       <div
         key={rapChieu.maCumRap}
@@ -20,7 +20,15 @@ const ScheDuleMovie = ({ refschedulemovie }) => {
         <div className="flex flex-wrap gap-2">
           {rapChieu.lichChieuPhim.map((lichChieu) => (
             <Button
-             onClick={() => navigate(`/sticketroom/${lichChieu.maLichChieu}`)}
+             onClick={() => {
+            if(userInfo){
+              navigate(`/ticket/${lichChieu.maLichChieu}`);
+             }
+             else{
+              navigate('/auth/login');
+              message.warning("Vui lòng đăng nhập");
+             }
+          }}
               key={lichChieu.maLichChieu}
               className="bg-white hover:bg-gray-600 text-black rounded-lg p-2 shadow-md transition-transform transform hover:scale-105"
               size="large"
